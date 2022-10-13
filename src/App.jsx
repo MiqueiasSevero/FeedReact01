@@ -5,6 +5,36 @@ import styles from './App.module.css'
 import './global.css'
 
 
+const posts = [
+    {
+      id: 1,
+      author: {
+        avatarUrl:'https://github.com/miqueiassevero.png',
+        name: 'Miqueias Severo',
+        role: 'CTO @SSComunica',
+        },
+      content: [
+        {type : 'paragraph', content :'Fala galeraa 👋'},
+        {type : 'paragraph', content :'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+        {type : 'link', content :'jane.design/doctorcare'},
+      ],
+      publishedAt : new Date('2022-10-13 01:06') ,
+    },
+    {
+      id: 2,
+      author: {
+        avatarUrl:'https://github.com/micaelsevero.png',
+        name: 'Micael Severo',
+        role: 'Developer @SSComunica',
+        },
+      content: [
+        {type : 'paragraph', content :'Fala galeraa 👋'},
+        {type : 'paragraph', content :'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+        {type : 'link', content :'jane.design/doctorcare'},
+      ],
+      publishedAt : new Date('2022-10-10 01:10') ,
+    }
+];
 export function App() {
 
 
@@ -15,16 +45,18 @@ export function App() {
       <div className={styles.wrapper}>
         <SideBar/>
         <main>
-            <Post 
-            author="Miqueias Severo"
-            content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab commodi modi necessitatibus eveniet, magnam ipsum incidunt mollitia quod cum provident vel delectus vero? Maxime non, magni harum dolor accusamus est?
-            "
-            />
-            <Post 
-            author="Janaina Severo"
-            content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab commodi modi necessitatibus eveniet, magnam ipsum incidunt mollitia quod cum provident vel delectus vero? Maxime non, magni harum dolor accusamus est?
-            "
-            /> 
+            {posts.map( post => {
+
+                return (
+                  <Post
+                    author={post.author}
+                    content={post.content}
+                    publishedAt={post.publishedAt}
+                  
+                  
+                  />
+                )  
+              })}
         </main>
       
       </div>   
