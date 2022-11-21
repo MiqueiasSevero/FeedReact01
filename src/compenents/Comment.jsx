@@ -33,4 +33,4 @@ export function Comment({content}) {
 
         </div>
     )
-}
+}   
